@@ -136,7 +136,7 @@ ruff check .
 pytest
 ```
 
-GitHub Actions runs both commands on Python 3.8, 3.9, 3.10, 3.11, 3.12, and 3.13.
+GitHub Actions runs both commands on Python 3.8, 3.9, 3.10, 3.11, 3.12, and 3.13. Python 3.8 and 3.9 run on Ubuntu 22.04, because the current `ubuntu-latest` image does not provide those interpreters.
 
 ## Known limitations
 
