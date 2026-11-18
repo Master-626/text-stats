@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "text-stats"
 version = "0.1.0"
-description = "Analyze text files: word count, character count, readability, and more"
+description = "Analyze text files: word count, character count, readability, and reading time"
 readme = "README.md"
 requires-python = ">=3.8"
 license = { text = "MIT" }
@@ -22,6 +22,8 @@ classifiers = [
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Topic :: Text Processing",
 ]
 dependencies = [
@@ -36,9 +38,24 @@ tstat = "text_stats.cli:main"
 [project.optional-dependencies]
 dev = [
     "pytest>=7.0.0",
+    "ruff>=0.6.0",
 ]
 
 [project.urls]
 Homepage = "https://github.com/Master-626/text-stats"
 Repository = "https://github.com/Master-626/text-stats"
 Issue-Tracker = "https://github.com/Master-626/text-stats/issues"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py38"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "B", "UP"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["text_stats"]
